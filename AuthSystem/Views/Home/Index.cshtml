@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AuthSystem.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<h1>Bem-vindo(a), @UserManager.GetUserAsync(User).Result.FirstName.</h1>

@@ -1,0 +1,52 @@
+﻿@page
+@model AuthSystem.Areas.Conta.Pages.GerenciarModel
+@{
+    ViewData["Title"] = "Gerenciar";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using AuthSystem.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<h1>Gerenciar conta</h1>
+<br />
+
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="account">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" value="@UserManager.GetUserAsync(User).Result.FirstName" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" value="@UserManager.GetUserAsync(User).Result.LastName" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label asp-for="Input.Email"></label>
+            <input asp-for="Input.Email" class="form-control" value="@UserManager.GetUserAsync(User).Result.Email" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-success btn-block" onclick="validateForm()"><i class="far fa-save"></i> Salvar dados</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/validations.js"></script>
+}

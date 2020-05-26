@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AuthSystem.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <span id="manage" class="nav-link text-dark font-weight-bold">Olá, @UserManager.GetUserAsync(User).Result.FirstName!</span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="gerenciar" href='/Conta/Gerenciar'>Gerenciar conta</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" href='/Conta/Logout'>Sair</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" href='/Conta/Login'>Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="registro" href='/Conta/Cadastro'>Cadastrar-se</a>
+        </li>
+    }
+</ul>
