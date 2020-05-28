@@ -30,9 +30,15 @@ function setClass(event) {
 // Validação dos forms - Click
 function validateForm() {
     window.setTimeout(function () {
-        var errors = document.getElementsByClassName("field-validation-error");
+        var errors = document.getElementsByClassName("field-validation-error");        
         for (var i = 0; i < errors.length; i++) {
             errors[i].previousElementSibling.classList.add('is-invalid');
+        }
+        if (errors.length === 0) {
+            let botao = form.querySelector('button[type="submit"]');
+            botao.disabled = true;
+            botao.firstElementChild.classList.add("spinner-border");
+            botao.firstElementChild.classList.add("spinner-border-sm");
         }
     }, 0);
 }

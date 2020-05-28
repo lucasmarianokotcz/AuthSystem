@@ -112,3 +112,8 @@ div.login-form-icon {
     right: 0;
     z-index: 1;
 }
+
+.disabedComponent {
+    opacity: 0.7;
+    pointer-events: none;
+}

@@ -25,7 +25,6 @@ namespace AuthSystem.Areas.Conta.Pages
         public async Task<IActionResult> OnGetAsync()
         {
             await _signInManager.SignOutAsync();
-            TempData["Alert"] = "Usuário deslogado!";
             _logger.LogInformation("Usuário deslogado.");
             return LocalRedirect("/");
         }

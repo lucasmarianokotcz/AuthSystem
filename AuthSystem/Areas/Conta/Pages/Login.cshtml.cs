@@ -87,7 +87,6 @@ namespace AuthSystem.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    TempData["Alert"] = "Usuário logado!";
                     _logger.LogInformation("Usuário logado.");
                     return LocalRedirect(returnUrl);
                 }
