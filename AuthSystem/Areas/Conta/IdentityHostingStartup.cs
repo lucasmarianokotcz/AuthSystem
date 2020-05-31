@@ -35,12 +35,6 @@ namespace AuthSystem.Areas.Identity
                     .AddErrorDescriber<PortugueseIdentityErrorDescriber>()
                     .AddDefaultTokenProviders();
 
-                services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                    .AddRazorPagesOptions(options =>
-                    {
-                        options.Conventions.AddAreaPageRoute("Conta", "/Conta", "");
-                    });
-
                 services.ConfigureApplicationCookie(options =>
                 {
                     options.LoginPath = $"/Conta/Login";

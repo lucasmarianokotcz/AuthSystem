@@ -11,7 +11,9 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <h1>Gerenciar conta</h1>
-<br />
+<h4>
+    <a href='/Conta/AlterarSenha'>Alterar senha</a>
+</h4>
 
 <form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="account">
     <div asp-validation-summary="All" class="text-danger"></div>

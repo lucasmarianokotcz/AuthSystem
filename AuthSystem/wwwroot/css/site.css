@@ -103,10 +103,8 @@ div.login-form-icon {
 }
 
 .small-alert {
-    height: 30px;
     line-height: 30px;
     padding: 0px 15px;
-    width: auto;
     margin-right: 15px;
     position: absolute;
     right: 0;

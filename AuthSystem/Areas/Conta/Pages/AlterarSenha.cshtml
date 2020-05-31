@@ -1,0 +1,39 @@
+﻿@page
+@model AuthSystem.Areas.Identity.Pages.Account.Manage.AlterarSenhaModel
+
+@{
+    ViewData["Title"] = "Alterar senha";
+}
+
+<a href='/Conta/Gerenciar'>&larr; Voltar para Gerenciar Conta</a>
+
+<h1>Alterar senha</h1>
+
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="account">
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.NewPassword"></label>
+                <input asp-for="Input.NewPassword" class="form-control" />
+                <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" onclick="validateForm()"><span id="error"></span> <i class="far fa-save"></i> Salvar senha</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/validations.js"></script>
+}

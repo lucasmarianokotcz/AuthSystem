@@ -58,19 +58,7 @@ namespace AuthSystem.Areas.Conta.Pages
             [Required(ErrorMessage = "O campo {0} é obrigatório.")]
             [EmailAddress(ErrorMessage = "O campo {0} não é um endereço de e-mail válido.")]
             [Display(Name = "E-mail")]
-            public string Email { get; set; }
-
-            //[Required(ErrorMessage = "O campo {0} é obrigatório.")]
-            //[StringLength(20, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
-            //[DataType(DataType.Password)]
-            //[Display(Name = "Senha")]
-            //public string Password { get; set; }
-
-            //[Required(ErrorMessage = "Confirme a senha.")]
-            //[DataType(DataType.Password)]
-            //[Display(Name = "Confirme a senha")]
-            //[Compare("Password", ErrorMessage = "A senha e a confirmação de senha não combinam.")]
-            //public string ConfirmPassword { get; set; }
+            public string Email { get; set; }            
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -95,7 +83,7 @@ namespace AuthSystem.Areas.Conta.Pages
 
                 if (result.Succeeded)
                 {
-                    TempData["Alert"] = "Usuário atualizado com sucesso!";
+                    TempData["Alert"] = "Dados do usuário atualizados com sucesso!";
                     _logger.LogInformation("Usuário atualizado com sucesso.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
