@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthSystem.App.Data;
 using AuthSystem.Areas.Conta.Pages;
 using AuthSystem.Areas.Identity.Data;
 using AuthSystem.Data;
@@ -29,6 +30,7 @@ namespace AuthSystem
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<AmigoDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
